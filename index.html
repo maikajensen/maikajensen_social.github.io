@@ -1,0 +1,946 @@
+<style>
+td {
+  font-size: 11px
+}
+th {
+  font-size: 13px
+}
+</style>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Stine Amtoft Nielsen, Maika Lindkvist and Thina L. Thøgersen">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Social Data 2021</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="song_sentiment_line_plot.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_data">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_intro" tabindex="-1">Intro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_when_rent" tabindex="-1">When to rent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_neighbourhoods" tabindex="-1">Trendy Neighbourhoods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_competitors_prices" tabindex="-1">Competitors Prices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#id_predict_price" tabindex="-1">Predict your Price</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container">
+            <img src="visualizations/Airbnb_im_1.png" width="100%" class="center-image">
+            <div class="text-block" style="background-color:#FF1000">
+                <h2 class="featurette-heading" style="font-weight: bold;" size="40">Airbnb in Copenhagen <br> <span class="featurette-heading" size="30"> Analyzing Listings & Predicting Prices  </span></h2>
+	    </div>
+        </div>
+	<div class="container marketing pt-5">
+		<div class="col-md-12">
+		    <p class="lead">
+			 Have you ever tried Airbnb? If not, check it out! Finding the right hotel for your travel can be a time consuming process, researching on a lot of different hotels on many different websites. It can be a maze. But what do you actually want with your travel? Is it to have a wonderful stay at a turist hotel full of swan-shaped towels and a litte chocolate on the pillow, or is it to have a unique authentic stay, where you get the full experience of your travel destination? That answer is quite easy, right? 
+		    </p>
+		    <p class="lead">
+			With Airbnb you can rent unique housings rented out by habitants of your travel destination themselfes, or you can rent out your own housing and help visiters get the most authentic stay in your city, and at the same time earn a small penny per night. Isn't that amazing? If Airbnb sounds appealing to you and you consider the idea of renting out your housing – and you live in Copenhagen – you come to the right place! 
+		    </p>
+		 </div>
+	</div>
+
+        <!-- Marketing messaging and featurettes
+  ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container">
+            <!-- START THE FEATURETTES -->
+            <hr class="featurette-divider" id="id_intro">
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h2 class="featurette-heading">New on the Airbnb Market? </h2>
+	 	    <p class="lead">
+			Is the thought of renting out your own housing totally new for you, and do you not know where and how to get started? Let us help you! We provide you with all the 'need to know' and 'nice to know' before getting comfortable renting out your housing. We show you the distribution of listings all around Copenhagen, show you how huge Airbnb has become the last couple of years, learn you when it is most optimal to rent out your housing, guide you through the different neighbourhoods of Copenhagen to see who are trending and provide you with information about your competitive listings' prices. After collecting all this information in your knapsack, you are almost ready to attack the Airbnb market and become a host. But what price can you take for a night at your place? Don't worry! We have collected a lot of information about the existing Airbnb listings in Copenhagen, and trained a machine learning model to offer you a guided price for your place. You just have to fill in the properties of your housing, and here you go! Now you are ready to attack the Airbnb market.
+		    </p>
+		    <p class="lead">
+		        Let's get started with your Airbnb journey by having a look at the large number of offered listings in Copenhagen and their locations. The colors of the listings tell what neighbourhoods they belong to. Try zooming in on the interactive map and have a look around. Get a feeling of the locations of the different neighbourhoods of Copenhagen.
+		    </p>
+		    
+                    <div>
+                        <object class="ob" data="visualizations/Map_neighbourhoods.html" width="90%" height="550px"></object>
+                    </div>
+                    <p class="lead">
+                        With Airbnb you can rent out a lising whether it is an entire appartment, a private room, a shared room or even a hotel room. Whether you consider renting out your entire appartment or just a single room, it is all possible. To get an overview of where different listing types are located and to understand the trends, check out the map. The red markers locate the 'entire homes/appartments', the green locate the 'private rooms', the blue locate the 'hotel rooms' and the yellow locate the 'shared rooms'.
+                    </p>
+                  <div>
+                        <object class="ob" data="visualizations/Map_roomtype.html" width="90%" height="550px"></object>
+                  </div>
+                  
+                  <p class="lead">
+                        Everything is possible, but as you see, most listings are entire homes/appartments or private rooms and there is many. Most listings are located in 'Indre by' being the most central neighbourhood of Copenhagen, just see the visualization below. This is where you find the amusement park Tivoli, the hippie area Christiana, the beautiful garden Kongens Have and many other turist attractions, so this is not remarkable. And as expected, most listings are in general seen in the surrounding neighbourhoods such as Vesterbro-Kongens Enghave, Nørrebro, Fredriksberg and Østerbro. Visiters like to stay close to where the fun happens!
+                  </p>
+                  
+                  <div>
+                      <img src="visualizations/Distribution_listings.png" width="90%" class="center-image">
+                  </div>
+                  <p class="lead">
+                        Many listings are available on the Airbnb market, but the number of renters is also high, and only more comes. Airbnb was founded in ultimo 2008 in California, USA, and has ever since become a more and more succesful business. In Copenhagen the growing number of listings started in 2012 and the illustration below only shows the massiv explosion of the Airbnb trend. More and more listings are seen all around Copenhagen. Click start on the map and check it out!
+                   </p>
+                  <div>
+                        <object class="ob" data="visualizations/Listings_heatmap.html" width="90%" height="550px"></object>
+                  </div>
+                  
+                </div>
+            </div>
+             <! -- ================================================== -->
+            <hr class="featurette-divider" id="id_when_rent">
+            <div class="row featurette">
+              <h2 class="featurette-heading">When to rent out your Housing? </h2>
+                <div class="col-md-12">
+                  <p class="lead">
+                       The majority of people travelling to Denmark and Copenhagen, come durng the summertime. The Dansih summer with a large Danish softice with guf and a Carlsberg beer is not to resist, which is visible on the yearly distribution of visiters who rent a housing in Copenhagen with Airbnb. Absolutly most visiters are seen from May to September, and fewest in January and February. This is illustrated in the visualization below, where the total number of reviews in Copenhagen from January 2012 until December 2019 are seen. As you see, you came at the right time! Airbnb is trending right now! 
+                  </p>
+		  <p class="lead">
+			  A review is obtained after an end estate rental, and is the same as one or more nights, namely a stay. Eight yearly distributions are visuable, all showing the same tendency. Most people are renting a housing in the summer half of the year, and more and more visiters are seen though the years from 2012 until 2019! The same color combination is used though a year, where the darkest blue illustrates January and the yellow illustrates December.
+		  </p>
+                  <div>
+                      <img src="visualizations/Histogram_month_year.png" width="95%" class="center-image">
+                  </div>
+                  <p class="lead">
+                        Having a closer look at only a single year, namely 2019, a lot of spikes are seen in the visualization below. Again a small color palette is used, now to illustrate one week. Yellow is now mondays and the darker blue colors illustrate the weekends. Most reviews are defenetly seen sundays to tuesdays. As mentioned, the plot illustates the number of reviews and not the the exact start or end date of a stay. By this reason, the weekly pattern becomes a little skeewed with a few days, having the assumption that most rentings are seen in the weekends. This assumption then still remains true. 
+                  </p>
+                  <div>
+                      <img src="visualizations/Histogram_days_2019.png" width="95%" class="center-image">
+                  </div>
+		  <p class="lead">
+		      So if you decide to rent out your housing and become a Airbnb host then be prepared every weekend, and especially thoughout the summer. You will probably get a guest or two!
+		  </p>
+                </div>
+            </div>
+            <! -- ================================================== -->
+            <hr class="featurette-divider" id="id_neighbourhoods">
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h2 class="featurette-heading">The Trendy Neighbourhoods </h2>
+                   
+		    <p class="lead">
+			We have seen that most listings are located in the most central neighbourhoods of Copenhagen, but what neighbourhoods do the best job? The table below provides a lot of fun facts about the different neighbourhoods from exact numbers. Wuhu! We see that it is easiest to rent out a listing, from the average number of reviews per listing, if it is located in Indre By or Vesterbro-Kongens Enghave. Opposite it is most difficult if it is located in Valby or Østerbro. It sounds a little strange with Østerbro, while this neighbourhood is in top 5 most central. Maybe it is due to the expensive prices in this neighbourhood compared to Vesterbro-Kongens Enghave and Nørrebro which are comparable neighbourhoods from their distance to the center.
+		    </p>
+		    <font size="15">
+                    <table style="border-collapse: collapse; border: none; border-spacing: 0px; width: 100%; height: 200px">
+			<tr>
+				<td style="background-color: rgb(153, 153, 153); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); padding-right: 3pt; padding-left: 3pt;">
+				</td>
+				<td style="border-bottom: 1px solid rgb(0, 0, 0); border-right: 1px solid rgb(0, 0, 0); border-top: 1px solid rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Average
+					<br>
+					</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Indre By</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Vesterbro - Kongens Enghave</font></b>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><b><font color="#ffffff">Nørrebro</font></b></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Frederiksberg</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Østerbro</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Amager Vest</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Amager st</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Valby</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Bispebjerg</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Vanløse</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Brønshøj - Husum</font></b>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-bottom: 1px solid rgb(0, 0, 0); border-right: 1px solid rgb(0, 0, 0); border-left: 1px solid rgb(0, 0, 0); background-color: rgb(153, 153, 153); padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Number of listings</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">645</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1337</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1115</font>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1103</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">790</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">743</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">614</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">502</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">251</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">237</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">182</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">117</font>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 153, 153); padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Number of reviews</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">16,387</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">46,516</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">31,772</font>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">26,070</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">19,106</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">13,774</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">15,477</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">11,481</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">4,600</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">4,622</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">4,381</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">2,406</font>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 153, 153); padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Average number of reviews per listing</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">25.39</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">34.79</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">28.50</font>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">23.64</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">24.18</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">18.54</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">25.21</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">22.87</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">18.33</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">19.50</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">24.07</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">20.56</font>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 153, 153); padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Average review score rating (scale: 0-100)</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.85</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.34</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">96.04</font>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.87</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">96.26</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">96.11</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">96.16</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.61</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.76</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.65</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.55</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">95.18</font>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 153, 153); padding-right: 3pt; padding-left: 3pt;">
+					<b><font color="#ffffff">Average price (DKK)</font></b>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(128, 128, 128); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1065</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(56, 86, 131); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1622</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(96, 120, 156); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">954</font>
+				</td>
+				<td style="background-color: rgb(128, 147, 176); border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">864</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(153, 169, 192); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">980</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(75, 114, 75); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1013</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(111, 142, 111); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">936</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(140, 165, 140); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1055</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(163, 183, 163); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">778</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(129, 100, 59); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">699</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(174, 136, 92); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">1097</font>
+				</td>
+				<td style="border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0); background-color: rgb(211, 173, 120); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+					<font color="#ffffff">838</font>
+				</td>
+			</tr>
+		</table>
+			</font>
+                  
+                  
+                    <p class="lead">
+                        To get an understanding of what neighbourhoods the visiters like the most, you find how many percent of each neighbourhood get what review score rating from the visualization below.
+                    </p>    
+                    <div>
+                      <object class="ob" data="visualizations/Bokeh_num_reviews_percentage.html" width="100%" height="600px"></object>
+                    </div>
+                    <p class="lead">
+                      The illustration is interactive and can be used as you want. Check out your own neighbourhood! Do people like your neighbourhood? Even though the rating score ranges from 0 to 100, absolutley the most review rating scores are higher than 80, seen from the illustration, so visiters in general seem very satisfied with their stay. Then no worries, new visiters will love to rent your housing!  
+                    </p>
+                </div>
+            </div>
+            <! --  ================================================== -->
+            <hr class="featurette-divider" id="id_competitors_prices">
+            <div class="row featurette">
+              <div class="col-md-12">
+                    <h2 class="featurette-heading"> Competitors Prices</h2>
+                    <p class="lead">
+                        Before attacking the Airbnb market as a new host, it is worth investigating the prices of your competitive hosts's listings around Copenhagen and within your own neighbourhood. All investigated prices are 'per night' and in DKK. First an overview of all listing prices!
+                    </p>
+                    <div>
+                        <img src="visualizations/Jitter_prices.png" width="95%" class="center-image">
+                    </div>
+                    <p class="lead">
+                         Absolutly most listings lie in the price range from 300 DKK to 1000 DKK. Most prices are set to the nearest 100, 500 or 1000 indicated by the strong majority of observations at these prices. Only a smaller number of listings are priced higher than 2000 DKK per night. A map locates the different listings just seen in the jitterplot. From zooming in and moving around, it is apparent that the more central the location of the listing is, the more expensive the renting price is per night. Opposite, the farther we get from the center of Copenhagen, the cheaper a listing becomes per night. What is also noticable is, that listings near water of any kind, whether it is the sea, the lakes of Copenhagen or the canals, are more expensive. This illustrative map ranges shows prices from 0 DKK to 2000 DKK (blue to magenta colors). Listings more expensive than 2000 DKK are marked magenta as well, indicating that these housings are very expensive per night!. 
+                     </p>
+                     <div>
+                        <object class="ob" data="visualizations/Price_map.html" width="90%" height="550px"></object>
+                     </div>
+                     <p class="lead">
+                        We know that Indre by has the highest listing prices per night, and that the listing prices become lower the fare we get from the centrum. A little zoom on the different neighbourhoods in the map independently makes you able to go around tracking the information you are looking for. Check out your own neighbourhood and compare the prices with other neighbourhoods'. This same investigation can be performed on the interactive visualization below. From here it is clear that the regions providing the lowest prices are Bispebjerg, Vanløse and Brønshøj-Husum being the more western neighbourhoods of Copenhagen.
+                    </p>
+                    <div>
+                        <object class="ob" data="visualizations/Bokeh_price_percentage.html" width="100%" height="600px"></object>
+                    </div>
+                    <p class="lead">
+                         Okay, so for now our assumptions are that you can charge a higher price for your housing if it is located close to the centrum of Copenhagen or near water of any kind. Let's see if a Machine Learning algorithm, namely K-Nearest Neighbors (KNN), can prove our assumptions drawn from the previous visualizations. KNN is a classification algorithm, here used to find out at what locations, all around Copenhagen, you can charge more than 1000 DKK per night! Solely based on the location! Pretty nice, right?
+                    </p>
+                    <div>
+                        <object class="ob" data="visualizations/K_nearest_map.html" width="75%" height="650px"></object>
+                    </div>
+                    <p class="lead">
+                        Wow! A grid full of points and full of super cool information! In the red areas you can take more than 1000 DKK per night at your housing solely based on the location! Assumptions proved! You can take a higher price per night, if your housing is located in the centrum of Copenhagen or near water.  
+                    </p>
+
+                </div>
+            </div>
+            <! -- ================================================== -->
+            <hr class="featurette-divider" id="id_predict_price">
+            <div class="row featurette">
+              <div class="col-md-12">
+               <h2 class="featurette-heading"> Price Guide - Predict the Price of your own Housing</h2>
+                    <p class="lead">
+                      So now your probably interested in what price you can take for a night at your housing on Airbnb? We have combined the information from all the previous analyses with even more information from the data to predict the price of your housing. The price is guidence and you can choose to make use of it or not. The price will be given in DKK and is per night. For predciting the listing price we make use of the most recent Airbnb prices, so that the estimated price will match the present prices on the market.  
+                    </p>
+        
+		      
+		<p class="lead">
+			Our model is based on the Random Forest Machine Learning Classifier. If you want to learn more about the method and the trained prediction model, then check out our explainer notebook. You find it from the link in the bottom of this website. 
+		</p>
+                <p class="lead">
+                      For predicting the listing price of your listing, some features have more influence than others. Features as the location (latitude, longitude, neighbourhood), the property type, the number of bedrooms, the number of beds and the number of days you want your listing to be available in the next 30 days, 60 days, 90 days and 365 days on the Airbnb market have a larger impact on the price. The amenities that you offer in your housing are also important. Some of the most important ones are diswasher, TV and washer.
+                    </p>
+		   <p class="lead">
+			   Try fill out the specifications of your housing and predict the price you can take per night! Good luck!  
+		   </p>
+                   <div class="form-row">
+                     <div class="col-lg-12">
+                        <p class="h4">Location of Listing</p>
+                     </div>
+		     <div class="form-group col-md-12">
+				<p class="lead">
+					What are the geographical coordinates of your listing's location?
+				</p>
+		     </div>
+                     <div class="form-group col-md-6">
+                      <label class="mr-sm-2" for="iii6">Latitude</label>
+                      <input type="text" class="form-control mb-2" id="iii6" value="55.6792">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="mr-sm-2" for="iii2">Longitude</label>
+                      <input type="text" class="form-control mb-2" id="iii2" value="12.5768">
+                    </div>
+                    <div class="col-lg-12">
+                    <label class="mr-sm-2" for="iii2">Find the latitude and longitude of your listing by zooming and clicking on the map </label>
+                    
+                    <div>
+                        <object class="ob" data="visualizations/Map_find_latlon.html" width="80%" height="400px  class="center" "></object>
+                    </div>
+		    </div>
+                     
+                     <div class="col-lg-12">
+                          <label class="mr-sm-2" for="iii3">Neighbourhood</label>
+                          <select class="custom-select mr-sm-2" id="iii3">
+                            <option selected value="0">Indre by</option>
+                            <option value="1">Amager st</option>
+                            <option value="2">Bispebjerg</option>
+                            <option value="3">Brønshøj-Husum</option>
+                            <option value="4">Frederiksberg</option>
+                            <option value="5">Indre By</option>
+                            <option value="6">Nørrebro</option>
+                            <option value="7">Valby</option>
+                            <option value="8">Vanløse</option>
+                            <option value="9">Vesterbro-Kongens Enghave</option>
+                            <option value="10">Østerbro</option>
+                          </select>
+                        </div>
+                     
+                     
+                     <div class="col-lg-12 mt-3">
+                        <p class="h4">Type of Listing</p>
+                     </div>
+                     
+                      <div class="form-group col-md-6">
+                          <label class="mr-sm-2" for="iii1">Property Type</label>
+                          <select class="custom-select mr-sm-2" id="iii1">
+                            <option selected value="2">Entire apartment</option>
+                            <option value="1">Boat</option>
+                            <option value="3">Entire bungalow</option>
+                            <option value="4">Entire cabin</option>
+                            <option value="5">Entire condominium</option>
+                            <option value="6">Entire guest suite</option>
+                            <option value="7">Entire guesthouse</option>
+                            <option value="8">Entire house</option>
+                            <option value="9">Entire loft</option>
+                            <option value="10">Entire serviced apartment</option>
+                            <option value="11">Entire townhouse</option>
+                            <option value="12">Entire villa</option>
+                            <option value="13">Houseboat</option>
+                            <option value="14">Hut</option>
+                            <option value="15">Island</option>
+                            <option value="16">Private room</option>
+                            <option value="17">Private room in apartment</option>
+                            <option value="18">Private room in barn</option>
+                            <option value="19">Private room in bed and breakfast</option>
+                            <option value="20">Private room in boat</option>
+                            <option value="21">Private room in bungalow</option>
+                            <option value="22">Private room in condominium</option>
+                            <option value="23">Private room in guest suite</option>
+                            <option value="24">Private room in guesthouse</option>
+                            <option value="25">Private room in hostel</option>
+                            <option value="26">Private room in house</option>
+                            <option value="27">Private room in loft</option>
+                            <option value="28">Private room in serviced apartment</option>
+                            <option value="29">Private room in tiny house</option>
+                            <option value="30">Private room in townhouse</option>
+                            <option value="31">Private room in villa</option>
+                            <option value="32">Room in aparthotel</option>
+                            <option value="33">Room in boutique hotel</option>
+                            <option value="34">Room in hostel</option>
+                            <option value="35">Room in hotel</option>
+                            <option value="36">Room in serviced apartment</option>
+                            <option value="37">Shared room in apartment</option>
+                            <option value="38">Shared room in bed and breakfast</option>
+                            <option value="39">Shared room in bungalow</option>
+                            <option value="40">Shared room in hostel</option>
+                            <option value="41">Tiny house</option>
+                          </select>
+                        </div>
+                     
+                     
+                        <div class="form-group col-md-6">
+                          <label class="mr-sm-2" for="iii5">Room Type</label>
+                          <select class="custom-select mr-sm-2" id="iii5">
+                            <option selected value="0">Entire home/apt</option>
+                            <option value="1">Hotel room</option>
+                            <option value="2">Private room</option>
+                            <option value="3">Shared room</option>
+                          </select>
+                        </div>
+                     
+                     
+                        <!--<div class="form-group col-md-4">
+                          <label class="mr-sm-2" for="iii9">Bedrooms</label
+                          <select class="custom-select mr-sm-2" id="iii9">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                          </select>
+                        </div>-->
+                     
+                        <div class="form-group col-md-4">
+                          <label class="mr-sm-2" for="iii13">Number of bedrooms</label>
+                          <select class="custom-select mr-sm-2" id="iii13">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                          </select>
+                        </div>
+                     
+                        <div class="form-group col-md-4">
+                          <label class="mr-sm-2" for="iii11">Number of beds</label>
+                          <select class="custom-select mr-sm-2" id="iii11">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                          </select>
+                        </div>
+                     
+                     
+                        <div class="form-group col-md-4">
+                          <label class="mr-sm-2" for="iii12">Number of bathrooms</label>
+                          <select class="custom-select mr-sm-2" id="iii12">
+                            <option value="0">0 baths</option>
+                            <option value="1">0 shared baths</option>
+                            <option value="2">1 bath</option>
+                            <option value="3">1 private bath</option>
+                            <option value="4">1 shared bath</option>
+                            <option value="5">1.5 baths</option>
+                            <option value="6">1.5 shared baths</option>
+                            <option value="7">2 baths</option>
+                            <option value="8">2 shared baths</option>
+                            <option value="9">2.5 baths</option>
+                            <option value="10">2.5 shared baths</option>
+                            <option value="11">3 baths</option>
+                            <option value="12">3 shared baths</option>
+                            <option value="13">3.5 shared baths</option>
+                            <option value="14">4 baths</option>
+                            <option value="15">4.5 baths</option>
+                            <option value="16">Half-bath</option>
+                            <option value="17">Private half-bath</option>
+                            <option value="18">Shared half-bath</option>
+                          </select>
+                        </div>
+                     
+                     <div class="col-lg-12"> 
+                        <p class="h4">Availability</p>
+                     </div>
+                     
+                     	<div class="form-group col-md-12">
+				<p class="lead">
+					How many nights do you want a visiter to stay at your listing? 
+				</p>
+			</div>
+			   
+                        <div class="form-group col-md-6">
+                          <label class="mr-sm-2" for="iii7">Minimum Nights</label>
+                          <input type="text" class="form-control mb-2" id="iii7" value="1">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label class="mr-sm-2" for="iii8">Maximum Nights</label>
+                          <input type="text" class="form-control mb-2" id="iii8" value="365">
+                        </div>
+                     
+			<div class="form-group col-md-12">
+				<p class="lead">
+					How many nights do you want your listing to be available in the next periode of 30, 60, 90 and 365 days?
+				</p>
+			</div>
+			   
+                        <div class="form-group col-md-3">
+                          <label class="mr-sm-2" for="iii14">Available the next 30 days</label>
+                          <input type="text" class="form-control mb-2" id="iii14" value="30">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                          <label class="mr-sm-2" for="iii0">Available the next 60 days</label>
+                          <input type="text" class="form-control mb-2" id="iii0" value="60">
+                        </div>
+                     
+                        <div class="form-group col-md-3">
+                          <label class="mr-sm-2" for="iii10">Available the next 90 days</label>
+                          <input type="text" class="form-control mb-2" id="iii10" value="90">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                          <label class="mr-sm-2" for="iii9">Available the next 365 days</label>
+                          <input type="text" class="form-control mb-2" id="iii9" value="365">
+                        </div>
+
+                      <div class="col-lg-12"> 
+                        <p class="h4">Amenities</p>
+                        </div>
+
+                        <div class="form-group col-md-12">
+				<p class="lead">
+					What amenities do you offer in your listing? 
+				</p>
+			</div>
+                          <!--<div class="custom-control custom-checkbox mr-sm-2"> -->
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii15">     <!-- Change id?  -->
+                              <label class="custom-control-label" for="iii15">Wifi</label>  <!-- Change id?  -->
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii16">
+                              <label class="custom-control-label" for="iii16">Kitchen</label>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii17">
+                              <label class="custom-control-label" for="iii17">Iron</label>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii18">
+                              <label class="custom-control-label" for="iii18">Coffee maker</label>
+                            </div>
+                          </div>
+                        
+
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii4">
+                              <label class="custom-control-label" for="iii4">TV</label>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii19">
+                              <label class="custom-control-label" for="iii19">Hair dryer</label>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii20">
+                              <label class="custom-control-label" for="iii20">Washer</label>
+                            </div>
+                          </div>
+                     
+                    
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii21">
+                              <label class="custom-control-label" for="iii21">Dishwasher</label>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii22">
+                              <label class="custom-control-label" for="iii22">Bed linens</label>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                              <input type="checkbox" class="custom-control-input" id="iii23">
+                              <label class="custom-control-label" for="iii23">Paid parking off premises</label>
+                            </div>
+                          </div>
+                   
+                          
+ 
+                        
+
+                    </div>
+                <div class="container marketing pt-5">
+			<div class="row">
+		    <div class="col-lg-4">
+		     </div><!-- /.col-lg-4 -->
+			 <div class="col-lg-4">
+			   <button onclick="updatePrice()" class="btn btn-success btn-rounded btn-block" style="font-variant: small-caps; font-size: 18px;">  Predict Listing Price  </button>
+			    <div id="iiio" style="font-variant: small-caps; font-size: 28px;">
+			</div>
+			</div>
+			<div class="col-lg-4">
+		     </div><!-- /.col-lg-4 -->
+		</div>
+                </div>
+                
+                
+                <script>
+                  function updatePrice() {
+                    document.getElementById("iiio").innerHTML = "Calculating price ...";
+                    try {
+                      var ii0 = parseFloat(document.getElementById("iii0").value);
+                      var ii1 = parseFloat(document.getElementById("iii1").value);
+                      var ii4 = document.getElementById("iii4").checked ? 1 : 0;
+                      var ii3 = parseFloat(document.getElementById("iii3").value);
+                      var ii2 = parseFloat(document.getElementById("iii2").value);
+                      var ii5 = parseFloat(document.getElementById("iii5").value);
+                      var ii6 = parseFloat(document.getElementById("iii6").value);
+                      var ii7 = parseFloat(document.getElementById("iii7").value);
+                      var ii8 = parseFloat(document.getElementById("iii8").value);
+                      var ii9 = parseFloat(document.getElementById("iii9").value);
+                      var ii10 = parseFloat(document.getElementById("iii10").value);
+                      var ii11 = parseFloat(document.getElementById("iii11").value);
+                      var ii12 = parseFloat(document.getElementById("iii12").value);
+                      var ii13 = parseFloat(document.getElementById("iii13").value);
+                      var ii14 = parseFloat(document.getElementById("iii14").value);
+                      var ii15 = document.getElementById("iii15").checked ? 1 : 0;
+                      var ii16 = document.getElementById("iii16").checked ? 1 : 0;
+                      var ii17 = document.getElementById("iii17").checked ? 1 : 0;
+                      var ii18 = document.getElementById("iii18").checked ? 1 : 0;
+                      var ii19 = document.getElementById("iii19").checked ? 1 : 0;
+                      var ii20 = document.getElementById("iii20").checked ? 1 : 0;
+                      var ii21 = document.getElementById("iii21").checked ? 1 : 0;
+                      var ii22 = document.getElementById("iii22").checked ? 1 : 0;
+                      var ii23 = document.getElementById("iii23").checked ? 1 : 0;
+
+                      $.ajax({
+                        url: 'https://europe-west3-danskespil-907.cloudfunctions.net/price_predictor_1',
+                        cache: 'false',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: {
+                          inputs0: ii0,
+                          inputs1: ii1,
+                          inputs2: ii2,
+                          inputs3: ii3,
+                          inputs4: ii4,
+                          inputs5: ii5,
+                          inputs6: ii6,
+                          inputs7: ii7,
+                          inputs8: ii8,
+                          inputs9: ii9,
+                          inputs10: ii10,
+                          inputs11: ii11,
+                          inputs12: ii12,
+                          inputs13: ii13,
+                          inputs14: ii14, 
+                          inputs15: ii15,
+                          inputs16: ii16,
+                          inputs17: ii17,
+                          inputs18: ii18,
+                          inputs19: ii19, 
+                          inputs20: ii20,
+                          inputs21: ii21,
+                          inputs22: ii22,
+                          inputs23: ii23
+                        },
+                        success: function(data) {
+                          document.getElementById("iiio").innerHTML =  Math.round(data.price * 100) / 100 + " DKK per night";
+                        },
+                        error: function(error) {
+                          console.log(error);
+                          document.getElementById("iiio").innerHTML = "There was a server error, your are missing some input";
+                        }
+                      });
+
+                    } catch (error) {
+                      console.log(error);
+                      document.getElementById("iiio").innerHTML = "There was an error converting the input to floats, please check your input";
+                    }
+                  }
+                  </script>
+                
+            </div>
+          </div>
+          
+          
+          <!-- ================================================== --> 
+          <hr class="featurette-divider" id="id_data">
+          <section id="mid"> 
+          <div class="row featurette">
+          <!--<div class="row featurette"> -->
+          <div class="container marketing pt-5">
+              <div class="row">
+                
+          <!--<div class="anchor" id="id_data"> </div> 
+          <div class="container marketing pt-5"> -->
+            
+            <!-- Three columns of text below the carousel -->
+            <div class="col-lg-2">
+            
+             </div><!-- /.col-lg-2 -->
+                 <div class="col-lg-4">
+                    <img src="visualizations/airbnb.png" width="60%">
+<!--                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        </svg> -->
+                    <h2>Data from AirBnb</h2>
+<!--                    <p>Placeholder.</p> -->
+                    <p><a class="btn btn-secondary" href="data/listings.zip" role="button">Load Listings &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="data/reviews.zip" role="button">Load Reviews &raquo;</a></p>
+                 </div><!-- /.col-lg-4 -->
+                 <div class="col-lg-4">
+                    <img src="visualizations/deepnote.png" width="66.5%">
+                    <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                    </svg> -->
+                    <h2>Explainer Notebook</h2>
+                    <p><a class="btn btn-secondary" href="https://deepnote.com/@thina-thgersen/Social-Data-2021-Publishing-vkvdLxOITAKuV05Z1LUJdQ#" role="button">View Notebook &raquo;</a></p>
+                 </div><!-- /.col-lg-4 -->
+		  <div class="col-lg-2">
+            
+             	</div><!-- /.col-lg-2 -->
+            	</div><!-- /.row -->
+            </div>
+            
+           
+            <hr class="featurette-divider">
+            <!-- /END THE FEATURETTES -->
+        </div><!-- /.container -->
+        </section>
+       
+          
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>Stine Amtoft Nielsen (s164201), Thina Thøgersen (s165541), Maika Lindkvist (s164192) <br> 02806 Social Data and Visualizations <br> Technical University of Denmark <br> May 2021</p>
+        </footer>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
+  <script>
+    window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+    </script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
